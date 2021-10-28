@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Empleado {
 	
-	private static final double SALARIO_BASE = 13000.0;
+	public static final double SALARIO_BASE = 13000.0;
 
 	//ATRIBUTOS
 	protected String nombre;
@@ -51,7 +51,10 @@ class Gerente extends Empleado{
 		System.out.println("..... constructo de Gerente" );
 	}
 	
-	
+	public Gerente(String nombre, String dep) {
+		this(nombre,Empleado.SALARIO_BASE,dep);
+	}
+	 
 	
 	@Override
 	public String getDetalles() {
