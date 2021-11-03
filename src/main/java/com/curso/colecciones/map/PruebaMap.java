@@ -2,6 +2,7 @@ package com.curso.colecciones.map;
 
 import java.util.*;
 import com.curso.colecciones.set.Alumno;
+import com.curso.colecciones.set.ComparadorPorNombre;
 
 public class PruebaMap {
 	
@@ -36,13 +37,16 @@ public class PruebaMap {
 		}
 		
 		// key es el alumno y value es un double con la nota
-		Map<Alumno, Double> notasPorAlumno = new HashMap();
+		Map<Alumno, Double> notasPorAlumno = //new LinkedHashMap<Alumno, Double>();
+		                                         //new HashMap();
+		                                         //new TreeMap();
+				               new TreeMap(new ComparadorPorNombre());     
 		
 		
 		Alumno aa1 = new Alumno(1, "Laura");
 		Alumno aa2 = new Alumno(8, "Pedro");
 		Alumno aa3 =  new Alumno(8, "Pedro");
-		Alumno aa4 = new Alumno(3, "Roberto");
+		Alumno aa4 = new Alumno(3, "Ana");
 		
 		
 		notasPorAlumno.put(aa1, 9.0);
@@ -57,9 +61,20 @@ public class PruebaMap {
 		System.out.println(".... Notas ...... ");
 		Set<Alumno> claves = notasPorAlumno.keySet();
 		for(Alumno key: claves) {
-			System.out.println(". " + key.getNombre() + ": " 
-		                            + notasPorAlumno.get(key));
+//			System.out.println(". " + key.getNombre() + ": " 
+//		                            + notasPorAlumno.get(key));
+			
+			System.out.printf(". El alumno %s tiene una nota de %5.3f %n",
+					key.getNombre() , notasPorAlumno.get(key));
 		}		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 
