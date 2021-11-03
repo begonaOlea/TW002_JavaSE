@@ -1,6 +1,7 @@
 package com.curso.ficheros;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class EjemploFicheros {
 
@@ -53,15 +54,32 @@ public class EjemploFicheros {
 		
 		//leer
 		
-		BufferedReader entrada =
-				new BufferedReader(new FileReader(f2));
-		String linea = null;
-		do {
-			linea = entrada.readLine();
-			System.out.println(". " + linea);
-		}while(linea != null );
+		try(BufferedReader entrada =
+				new BufferedReader(new FileReader(f2))){
+			String linea = null;
+			do {
+				linea = entrada.readLine();
+				System.out.println(". " + linea);
+			}while(linea != null );
+		}
 		
-		entrada.close();
+		//leer con scanner
+		System.out.println("..... scanner ......");
+		Scanner sc = new Scanner(f2);
+		//por defecto el separador es el space
+		sc.useDelimiter("/n");
+		String linea = null;
+		while (sc.hasNext()) {
+			linea = sc.next();
+			System.out.println(linea);
+		}
+		
+		
+		
+		
+		
+		
+		
 
 	}
 }
